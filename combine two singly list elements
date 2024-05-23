@@ -1,0 +1,81 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct Node {
+    int data;
+    struct Node* next;
+};
+struct Node* createNode(int data) {
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    newNode->data = data;
+    newNode->next = NULL;
+    return newNode;
+}
+void appendNode(struct Node** headRef, int data) {
+    struct Node* newNode = createNode(data);
+    if (*headRef == NULL) {
+        *headRef = newNode;
+    } else {
+        struct Node* temp = *headRef;
+        while (temp->next != NULL) {
+            temp = temp->next;
+        }
+        temp->next = newNode;
+    }
+}
+struct Node* combineLists(struct Node* head1, struct Node* head2) {
+    struct Node* combinedHead = NULL;
+    struct Node* temp = head1;
+    while (temp != NULL) {
+        appendNode(&combinedHead, temp->data);
+        temp = temp->next;
+    }
+    temp = head2;
+    while (temp != NULL) {
+        appendNode(&combinedHead, temp->data);
+        temp = temp->next;
+    }
+
+    return combinedHead;
+}
+
+void printList(struct Node* head) {
+    struct Node* temp = head;
+    while (temp != NULL) {
+        printf("%d -> ", temp->data);
+        temp = temp->next;
+    }
+    printf("NULL\n");
+}
+int main() {
+    struct Node* head1 = createNode(1);
+    head1->next = createNode(2);
+    head1->next->next = createNode(3);
+    struct Node* head2 = createNode(4);
+    head2->next = createNode(5);
+    head2->next->next = createNode(6);
+    printf("List 1: ");
+    printList(head1);
+    printf("List 2: ");
+    printList(head2);
+    struct Node* combinedHead = combineLists(head1, head2);
+    printf("Combined List: ");
+    printList(combinedHead);
+    struct Node* temp;
+    while (head1 != NULL) {
+        temp = head1;
+        head1 = head1->next;
+        free(temp);
+    }
+    while (head2 != NULL) {
+        temp = head2;
+        head2 = head2->next;
+        free(temp);
+    }
+    while (combinedHead != NULL) {
+        temp = combinedHead;
+        combinedHead = combinedHead->next;
+        free(temp);
+    }
+
+    return 0;
+}
