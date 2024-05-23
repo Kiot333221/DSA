@@ -1,0 +1,67 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+struct Node {
+    int data;
+    struct Node* next;
+};
+struct Node* createNode(int data) {
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    newNode->data = data;
+    newNode->next = NULL;
+    return newNode;
+}
+bool areIdentical(struct Node* head1, struct Node* head2) {
+    struct Node* temp1 = head1;
+    struct Node* temp2 = head2;
+
+    while (temp1 != NULL && temp2 != NULL) {
+        if (temp1->data != temp2->data) {
+            return false;
+        }
+        temp1 = temp1->next;
+        temp2 = temp2->next;
+    }
+
+    // If both lists are traversed completely and are of the same length
+    return (temp1 == NULL && temp2 == NULL);
+}
+void printList(struct Node* head) {
+    struct Node* temp = head;
+    while (temp != NULL) {
+        printf("%d -> ", temp->data);
+        temp = temp->next;
+    }
+    printf("NULL\n");
+}
+
+int main() {
+    struct Node* head1 = createNode(1);
+    head1->next = createNode(2);
+    head1->next->next = createNode(3);
+    struct Node* head2 = createNode(1);
+    head2->next = createNode(2);
+    head2->next->next = createNode(3);
+    printf("List 1: ");
+    printList(head1);
+    printf("List 2: ");
+    printList(head2);
+    if (areIdentical(head1, head2)) {
+        printf("The linked lists are identical.\n");
+    } else {
+        printf("The linked lists are not identical.\n");
+    }
+    struct Node* temp;
+    while (head1 != NULL) {
+        temp = head1;
+        head1 = head1->next;
+        free(temp);
+    }
+    while (head2 != NULL) {
+        temp = head2;
+        head2 = head2->next;
+        free(temp);
+    }
+
+    return 0;
+}
