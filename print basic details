@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main() {
+    int age;
+    char aadhar[13]; 
+    char mobile[11]; 
+    char debit_card[17]; 
+    printf("Enter your age: ");
+    scanf("%d", &age);
+    printf("Enter your Aadhar number: ");
+    scanf("%s", aadhar);
+    printf("Enter your mobile number: ");
+    scanf("%s", mobile);
+    printf("Enter your debit card serial number: ");
+    scanf("%s", debit_card);
+    printf("\nCollected Information:\n");
+    printf("Age: %d\n", age);
+    printf("Aadhar Number: %s\n", aadhar);
+    printf("Mobile Number: %s\n", mobile);
+    printf("Debit Card Serial Number: %s\n", debit_card);
+
+    return 0;
+}
