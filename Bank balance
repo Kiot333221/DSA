@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+#define MAX_TRANSACTIONS_PER_DAY 3
+#define TRANSACTION_LIMIT 10000
+#define TRANSACTION_FEE 20
+#define MIN_BALANCE 10000
+
+int main() {
+    int bank_balance = 50000;
+    int transactions_left = MAX_TRANSACTIONS_PER_DAY;
+
+    while (1) {
+        if (bank_balance <= MIN_BALANCE) {
+            printf("Insufficient balance. Bank balance is below 10,000.\n");
+            break;
+        }
+
+        int amount = 0;
+        if (transactions_left == 0) {
+            bank_balance -= TRANSACTION_FEE;
+        } else {
+            printf("Enter the amount to withdraw (max 10,000): ");
+            scanf("%d", &amount);
+            if (amount <= 0 || amount > TRANSACTION_LIMIT) {
+                printf("Invalid amount.\n");
+                continue;
+            }
+            if (amount > bank_balance) {
+                printf("Insufficient balance.\n");
+                continue;
+            }
+            bank_balance -= amount;
+            transactions_left--;
+            printf("Withdrawn %d, Bank balance: %d, Transactions left: %d\n", amount, bank_balance, transactions_left);
+        }
+
+        char choice;
+        printf("Do you want to continue? (yes/no): ");
+        scanf(" %c", &choice);
+        if (choice != 'y' && choice != 'Y') {
+            break;
+        }
+    }
+
+    return 0;
+}
