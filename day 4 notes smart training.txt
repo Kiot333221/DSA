@@ -1,0 +1,217 @@
+1)  main(){
+int a = 10;
+if(a>1 && a++<5)
+{
+printf("hello %d",a);
+}
+else
+{
+printf("hai %d",a);
+}
+}
+logical AND ur first condition false 
+--------------------------------------------------------------------
+
+
+2)  logical OR viceversa
+1st condition false it goes to 2nd condition,
+1st condition is true it does not go to 2nd condition.
+
+main(){
+int a = 10;
+if(a>1 || a++<5)
+{
+printf("hello %d",a);
+}
+else
+{
+printf("hai %d",a);
+}
+}
+--------------------------------------------------------------------
+
+3) bitwise OR 
+
+main(){
+int a = 10;
+if(a>1 | a++<5)
+{
+printf("hello %d",a);
+}
+else
+{
+printf("hai %d",a);
+}
+}
+
+ans: hello 11.
+
+---------------------------------------------------------------------
+4)bitwise AND 
+
+main(){
+int a = 10;
+if(a>1 & a++<5)
+{
+printf("hello %d",a);
+}
+else
+{
+printf("hai %d",a);
+}
+}
+
+ans: hai 11
+
+----------------------------------------------------------------------
+5)
+main(){
+int a = 10;
+if(a>1 & a++<5 & ++a==11)
+{
+printf("hello %d",a);
+}
+else
+{
+printf("hai %d",a);
+}
+}
+
+ans : hai 12.
+
+
+----------------------------------------------------------------------------
+6)
+main(){
+int a = 10;
+if(a>1 | a++<5 | ++a==11)
+{
+printf("hello %d",a);
+}
+else
+{
+printf("hai %d",a);
+}
+}
+
+ans : hello 12.
+
+
+----------------------------------------------------------------------------------------------------
+                                             GRAPH
+
+
+google map, facebook, linkedIn, instagram  = real time example
+
+BSF algorithm    
+DSF algorithm   
+  both used for finding node and identify shortest path
+
+topics covered:
+* adjacency list
+
+DFS algorithm - depends upon queue
+BFS algoru=ithm - depends upon stack
+
+ two types of array:
+visited and non visited array
+
+dynamic programming approach  -- optimized solution
+there are two types of solution feasible and possible solutions
+
+
+BFS algorithm
+
+depends upon queue.
+
+
+
+-------------------------------------------------------------------------------------------------------
+int main()
+ {
+struct Graph* graph = createGraph(4);
+addEdge(graph, 0, 1);
+addEdge(graph, 0, 2);
+addEdge(graph, 0, 3);
+addEdge(graph, 0, 4);
+addEdge(graph, 1, 2);
+addEdge(graph, 1, 4);
+addEdge(graph, 1, 5);
+addEdge(graph, 2, 3);
+addEdge(graph, 2, 4);
+addEdge(graph, 3, 4);
+addEdge(graph, 3, 5);
+addEdge(graph, 4, 5);
+addEdge(graph, 5, 6);
+printGraph(graph);
+DSA(graph, 2);
+return 0;
+}
+
+
+--------------------------------------------------------------------------------------------------------
+
+find the day of date using zellers formula
+`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
